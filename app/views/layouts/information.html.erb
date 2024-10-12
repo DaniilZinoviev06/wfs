@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>APP | Watching films</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= javascript_include_tag "ForStyles/dropeddown", "data-turbo-track": "reload" %> 
+    <%= javascript_include_tag "ForStyles/tooltip", "data-turbo-track": "reload" %> 
+    <%= javascript_include_tag "ForStyles/search", "data-turbo-track": "reload" %> 
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body data-header-target = "closeUserMenu">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= render 'layouts/header' %>
+
+    <div class="flex absolute w-full h-[300px] z-0 overflow-hidden align-center">
+        <img class="w-auto h-full object-cover transition-all duration-300 filter grayscale hover:grayscale-0 flex-shrink-0 flex-grow" 
+            src="<%= @anime.background_image_url %>" 
+            alt="image description">
+    </div>
+
+
+    <main class="relative flex items-center mx-auto z-3 w-[1150px] my-3" style="margin-top: 170px">
+        <div class="flex justify-center mx-auto w-full">
+            <div class="ml-auto mb-3 bg-[#f4f4f4] rounded-md">
+                <!-- Image Section -->
+                <div class="w-[250px] h-auto overflow-hidden rounded-md">
+                    <img src="<%= @anime.image_url%>" class="w-full object-cover">
+                </div>
+            </div>
+
+            <div class="w-[800px] z-3 mx-auto">
+                <h3 class="text-3xl mb-2 h-auto font-bold dark:text-white"><%= @anime.name %></h3>
+                <div class="p-4 mb-2 mx-auto rounded-md bg-[#fff]">
+                    <div class="anime-navigation w-auto h-7 mx-auto border-b-2">
+                        <button class="nav-btn" data-section="info">Информация</button>
+                        <button class="nav-btn" data-section="episodes">Эпизоды</button>
+                        <button class="nav-btn" data-section="discussions">Фильмы</button>
+                        <button class="nav-btn" data-section="reviews">Отзывы</button>
+                        <button class="nav-btn" data-section="discussions">Дискуссии</button>
+                        <button class="nav-btn" data-section="discussions">Ссылки</button>
+                    </div>
+
+                    <div class="w-full">
+                        <div class="relative flex flex-wrap mx-auto my-2">
+                            <%= @anime.description %>
+                        </div>
+                    </div> 
+
+                    <!-- Tags -->
+                    <div class="w-full">
+                        <div class="relative flex flex-wrap mx-auto my-2">
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">ГГ имба</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Гарем</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Сенен</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Длинное аниме</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Дружба</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Юмор</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Грустное</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Боевик</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Юмор</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Грустное</span>
+                            <span class="bg-pink-100 mt-2 text-pink-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-pink-200">Боевик</span>
+                        </div>
+                    </div>   
+
+                    <!-- <h1 class="text-3xl my-2 font-bold mt-4">Серии</h1>
+                    <ul>
+                        <% @episodes.each.with_index(1) do |episode, index| %>
+                            <li class="mt-2 ">
+                                <%= link_to "#{index} серия - #{episode.title}", anime_episode_path(@anime, episode.episode_number), class:"series-link "%>
+                            </li>
+                        <% end %>
+                    </ul> -->
+                </div>
+                <div class="p-4 mb-2 mx-auto rounded-md bg-[#fff]">
+                    <div class="flex justify-center mx-auto">
+                        <!-- charts -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+  <script src="https://kit.fontawesome.com/06f9f7f69f.js" crossorigin="anonymous"></script>
+</html>
+

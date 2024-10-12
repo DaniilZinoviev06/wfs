@@ -1,0 +1,24 @@
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback" defer></script>
+
+<div>
+    <% if params[:is_recaptcha] %>
+        <%= recaptcha_tags %>
+    <% else %>
+        <div class="cf-turnstile" id="widget" data-sitekey="<%= ENV["PUBLIC_KEY"] %>"></div>
+    <% end %>
+
+    <p class="text-xs">Капча не работает? Есть<a href="?is_recaptcha=true" class="text-[#120a8f] hover:text-[#f28e3c] hover:underline"> другая</a></p>
+</div>
+
+<script>
+window.onloadTurnstileCallback = function () {
+    turnstile.render('#widget', {
+        sitekey: '<%= ENV["PUBLIC_KEY"] %>',
+        callback: function(token) {
+            setTimeout(() => {
+                document.getElementById("widget")
+            }, 1000)
+        },
+    });
+};
+</script>

@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-video-player);
+}
+
+body {
+	background-color:#f2f3f4; 
+}
+
+a, p, h1, h2, h3, button {
+	color:#2d2f31;
+}
+
+.title {
+	color: #122233;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	margin-left: 30px;
+	color: #120a8f;
+	&:hover {
+		color: #f28e3c;
+		text-decoration: underline;
+	} 
+}
+
+.nav-btn {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.series-link {
+	color: #120a8f;
+	&:hover {
+		color: #f28e3c;
+		text-decoration: underline;
+	} 
+}
+
+.s-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: #fff;
+	width: 160px;
+	height: 25px;
+	background-color: #232323;
+	&:hover {
+		opacity: 80%;
+	} 
+}
+
+:root {
+	--font-main: 'Comfortaa', cursive;
+	--font-video-player: 'Poppins', sans-serif;
+}
+
+.material-icons {
+	user-select:none;
+	-webkit-user-select:none;
+	cursor:pointer;
+	color:#f2f3f4;
+}
+
+.icons-button:hover > span,
+.icons-button:active > span,
+.icons-button:focus > span {
+  opacity: 75%;
+}
+
+// dropdown menu design 
+
+.dropDownBn {
+    background-color:transparent;
+    letter-spacing: 2px;
+    color:#fff;
+    cursor: default;
+    z-index: 5;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.01); 
+	}
+}
+
+.tooltip {
+	position: absolute;
+	left: 110%; 
+	top: 0%;
+}
+
+.tooltip-arrow {
+	position: absolute;
+	left: -8px; 
+	top: 40px; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #122233; 
+}
+
+// search design 
+
+.block-search {
+	position: absolute;
+	display: none;
+	background-color: #2d2f31;
+}
+
+.search-mode {
+	display: flex;
+	font-size: 13px;
+	font-weight: 400;
+	padding-left: 10px;
+	height: 45px;
+	align-items: center;
+	-ms-user-select: none; 
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	user-select: none; 
+	background-color: #fff;
+	color: #000000;
+	outline: 0.1px solid #f4f4f4;
+	z-index: 10;
+
+	&::before {
+		position: relative;
+		content: "";
+		display: block;
+		align-items: center;
+		margin-right: 10px;
+		width: 5px;
+		height: 30px;
+	}
+
+	&.active {
+		&::before {
+		z-index: 11;
+		background-color: #120a8f;
+		}
+	}
+
+	&:hover {
+		&:not(.active)::before {
+		display: block;
+		z-index: 10;
+		opacity: 0.3;
+		background-color: #808080;
+		}
+	}
+}
+  
